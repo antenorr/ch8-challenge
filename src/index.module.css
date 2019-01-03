@@ -1,0 +1,71 @@
+
+.envelope {
+  border: 1px solid rgb(58, 46, 216);
+  min-height: 60vh;
+  position: relative;
+  
+}
+.sender_label {
+  color: green;
+  display: inline-block;
+  margin: 5px;
+
+}
+.stamp {
+  width: 100px;
+  height: 125px;
+  border: 1px dashed #ddd;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  margin: 0;
+}
+
+
+.the_receiver_label {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.creditCard {
+  width: 325px;
+  height: 175px;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: rgb(57, 57, 182);
+  color: white;
+}
+
+.bankTitle {
+  font-size: 1.7em;
+  color : white;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+
+.accountNumber {
+  font-size: 1.5em;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 75px;
+}
+
+.cardio {
+  font-family: 'Times New Roman', Times, serif;
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  color: rgb(200, 206, 200);
+}
+
+.cardHolder {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+}
+  
+
