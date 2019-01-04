@@ -49,6 +49,19 @@ const client = {
   bankName: "Wells Farggo"
 }
 
+const posterDetails = {
+  image: "./react-logo.png",
+  title: "React",
+  text: "The best thing since sliced bread!"
+}
+
+const incomingEmailData = {
+  sender: "Elon Musk",
+  subject: "Request for Expertise",
+  date: "January 1",
+  message: "We have heard that you are an amazing front-end developer in the field of React/Redux and would love to extend an offer to you!"
+}
+
 
 const Stamp = ({ className }) => {
   return (
@@ -126,15 +139,82 @@ CreditCard.propTypes = {
 }
 
 
+const Poster = ({ posterProperties, className }) => {
+  const { image, title, text } = posterProperties;
+  console.log(image);
+  return (
+    <div className={styles.posterDefault_setting}>
+      <div >
+        <img src={require('./react-logo.png')} alt="React.js Logo" className={styles.logo}/>
+        {/**Above is for one and done import logo from './logo.jpeg'; // with import ..THAN >> <img src={logo} />*/}
+      </div>
+      <div className={styles.titleStyle}>
+        <p>
+        <span>{title[0].toUpperCase()}</span>{title.slice(1,-1).toLowerCase()}<span>{title[title.length-1].toUpperCase()}</span> 
+        </p>
+      </div>
+      <div>
+        <p className={styles.posterText}>{text}</p>
+      </div>
+
+    </div>
+  );
+};
+Poster.propTypes = {
+  posterProperties: PropTypes.shape({
+                      image: PropTypes.string.isRequired,
+                      title: PropTypes.string.isRequired,
+                      text: PropTypes.string.isRequired,
+                    }).isRequired
+}
+
+const Email = ({ data }) => {
+  const { sender, subject, date, message } = data;
+  return (
+    <div className={styles.emailCard}>
+      <span className={styles.input}>
+        <input type="checkbox" name="emailSelect"  />
+      </span>
+      
+      <div className={styles.emailbody}>
+        <div className={styles.emailtopLayer}>
+          <span className={styles.emailSender} >{sender}</span>
+          <span className={styles.emailsubject}>{subject}</span>
+          <span className={styles.emailDate}>{date}</span>
+        </div>
+        <div className={styles.emailBottomLayer}>
+          {message}
+        </div>
+      </div>
+    </div>
+
+  );
+};
+Email.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
+
+
+
 const Envelope = ({toPerson, fromPerson}) => {
   return (
-    <div>
+    <div className={styles.page}>
       <div className={styles.envelope}>
        <AddressLabel className={styles.sender_label} person={toPerson}/>
        <Stamp className={styles.stamp}/>
        <AddressLabel className={styles.the_receiver_label} person={fromPerson}/>
       </div>
-      <CreditCard className={styles.creditCard} cardInfo={client}/>
+      <div>
+        <CreditCard className={styles.creditCard} cardInfo={client}/>
+      </div>
+      <div>
+        <Poster posterProperties={posterDetails} className={styles.poster}/>
+      </div>
+      <div>
+        <Email data={incomingEmailData} classname={styles.email}/>
+      </div>
+      
     </div>
 
 
